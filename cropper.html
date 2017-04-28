@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="node_modules/cropper/dist/cropper.css" rel="stylesheet">
+    <style>
+        img {
+            width: 800px;
+            height: 600px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img id='image' src="sakuya.png" alt="">
+        <button onclick='start()'>cropper</button>
+        <button onclick='stop()'>stop</button>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/cropper/dist/cropper.js"></script>
+    <script>
+        function start() {
+            $('#image').cropper({
+                cropstart() {
+                    console.log('start');
+                },
+                cropend() {
+                    console.log('end');
+                },
+                viewMode:1
+            });
+        }
+        function stop(){
+        //    let result= $('#image').cropper('getData');
+           var canvasData = $().cropper('getCanvasData');
+           $('#image').cropper('setCanvasData',canvasData);
+        }
+    </script>
+</body>
+
+</html>
