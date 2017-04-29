@@ -72,3 +72,4 @@ class handler {
     }
 
 }
+//https://genesischou.github.io/image-preview/.
